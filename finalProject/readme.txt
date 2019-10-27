@@ -1,0 +1,2 @@
+This website is my final project for CIT 190. I have created these games to demonstrate my skill with JavaScript. You can click any of the images to bring you to the respective game page. 
+Jakob Lochinski 2019-2020 © All Rights Reserved.
