@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/game.css">
     <title>Flappy Bird</title>
 </head>
-<body>
-    <h1>Flappy Bird</h1>
-    <p>Fly between the pipes to score, if you touch the pipe game over!</p>
+<body onload="startGame()">
+    <script src="js/flappyBird.js"></script>
+    
+    <button onclick="moveup()">UP</button>
+    <button onclick="movedown()">DOWN</button>
+    <button onclick="moveleft()">LEFT</button>
+    <button onclick="moveright()">RIGHT</button>
+
+    
 </body>
 </html>
