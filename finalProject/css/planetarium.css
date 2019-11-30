@@ -1,0 +1,34 @@
+body{
+    background-image:url('../media/background.png');
+    background-color: none;
+}
+.planet{
+    width: 175px;
+    height: 175px;
+    background: none;
+}
+.jupiter{
+    width: 200px;
+    height: 200px;
+    background: none;
+}
+.neptune{
+    width: 225px;
+    height: 225px;
+    background: none;
+}
+.mercury{
+    width:50px;
+    height:50px;
+    background:none;
+}
+.venus{
+    width:100px;
+    height:100px;
+    background:none;
+}
+.deathstar{
+    width: 500px;
+    height: 500px;
+
+}

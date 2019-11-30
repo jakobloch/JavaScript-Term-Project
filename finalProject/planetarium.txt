@@ -1,0 +1,6 @@
+Purpose: To entertain kids and bored people.
+Issues: Sometimes clicking in empty places still grabs objects
+Plans: Fixing bugs, Adding an educational aspect to the game
+How to play: Create your own custom solar system!
+Just drag and drop and see what you can make.
+Copyright 2019 Jakob Lochinski

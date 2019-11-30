@@ -2,14 +2,14 @@ var myGamePiece;
 var myBackground;
 var myObstacles = [];
 var myScore;
-
+// Creating game
 function startGame() {
-    myGamePiece = new component(70, 60, "media/flappy-bird-sprite.png", 10, 120, "image");
+    myGamePiece = new component(50, 40, "media/flappy-bird-sprite.png", 10, 120, "image");
     myBackground = new component(700, 500, "media/flappyBackground.png", 0, 0, "image");
     myScore = new component("30px", "Consolas", "white", 280, 40, "text");
     myGameArea.start();
 }
-
+// Defining game area
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
@@ -25,9 +25,10 @@ var myGameArea = {
     },
     stop : function() {
         clearInterval(this.interval);
+
     }
 }
-
+// component function
 function component(width, height, color, x, y, type) {
     this.type = type;
     if (type == "image") {
@@ -63,6 +64,7 @@ function component(width, height, color, x, y, type) {
         this.x += this.speedX;
         this.y += this.speedY;        
     }
+    // crash mechanics
     this.crashWith = function(otherobj) {
         var myleft = this.x;
         var myright = this.x + (this.width);
@@ -73,17 +75,20 @@ function component(width, height, color, x, y, type) {
         var othertop = otherobj.y;
         var otherbottom = otherobj.y + (otherobj.height);
         var crash = true;
+        
         if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
             crash = false;
         }
+
         return crash;
     }
 }
-
+// animation function
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+            
             myGameArea.stop();
             return;
         } 
@@ -100,31 +105,38 @@ function updateGameArea() {
         minGap = 80;
         maxGap = 200;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-        myObstacles.push(new component(10, height, "green", x, 0));
-        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+        myObstacles.push(new component(50, height, "media/flappyPipeDown.png", x, 0, "image"));
+        myObstacles.push(new component(50, x - height - gap, "media/flappyPipeUp.png", x, height + gap, "image"));
     }
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].speedX = -1;
         myObstacles[i].newPos();
         myObstacles[i].update();
     }
-    myScore.text="SCORE: " + myGameArea.frameNo;
-    myScore.update();
+        myScore.text="SCORE: " + myGameArea.frameNo;
+        
+        myScore.update();
     myGamePiece.newPos();    
     myGamePiece.update();
+}
+function reload(){
+    location.reload(); 
 }
 
 function everyinterval(n) {
     if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
     return false;
 }
+// bird moving buttons
 
 function moveup() {
-    myGamePiece.speedY = -1; 
+    myGamePiece.speedY = -2; 
+    
+    
 }
 
 function movedown() {
-    myGamePiece.speedY = 1; 
+    myGamePiece.speedY = 2 ; 
 }
 
 function moveleft() {
@@ -132,7 +144,7 @@ function moveleft() {
 }
 
 function moveright() {
-    myGamePiece.speedX = 1; 
+    myGamePiece.speedX = 2; 
 }
 
 function clearmove() {
